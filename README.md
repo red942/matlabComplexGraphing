@@ -11,7 +11,8 @@ To use the main app, just launch ComplexGraphing.mlapp. Then you can do the foll
   - (to move the center, simply type the real and imaginary offset (positive direction) into the box)
 * Use special functions such as the gamma and zeta function, by using the drop down box on the right.
 
-Made by 
+To use the complex surface, which is not currently in the app, do the following:
+
 Gabriel Cammack-Coleman
 Cameron Miller
 Brycen Daniels
