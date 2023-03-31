@@ -1,8 +1,51 @@
-function complexSurf(N,R)
-    a=linspace(-R,R,N);
-    b=linspace(-R,R,N);
+function complexSurf(varargin)
+
+    % Possible configurations of inputs:
+    %
+    % complexSurf(Res, Scale)
+    % Res changes how many subsections of the plane are used to plot the
+    % graph. Higher number means a finer plot. Scale changes the real and
+    % imaginary axes scale as a square. A Scale of 5 would generate a plane
+    % from -5 to 5 on the real axis and -5i to 5i on the imaginary axis
+    %
+    % complexSurf(Res, ScaleX, ScaleY)
+    % Res changes how many subsections of the plane are used to plot the
+    % graph. ScaleX changes the scale of the real axis to -ScaleX to
+    % ScaleX. ScaleY changes the scale of the imaginary axis to -ScaleY*i to
+    % ScaleY*i
+    %
+    % complexSurf(Res, Scale, [ZMin ZMax])
+    % Res changes how many subsections of the plane are used to plot the
+    % graph. Scale changes the real and imaginary axes scale as a square.
+    % The vector sets the bounds of the Z axis for both plots
+    %
+    % complexSurf(Res, ScaleX, ScalY, [ZMin ZMax])
+    % All of the above
+
+    % Sets variables based on input. See above comment for details
+    N=varargin{1};
+
+    if nargin==2
+        Rx=varargin{2};
+        Ry=varargin{2};
+    elseif nargin==3 && length(varargin{3})==2
+        ZLim=varargin{3};
+        Rx=varargin{2};
+        Ry=varargin{2};
+    elseif nargin==3 && length(varargin{3})==1
+        Rx=varargin{2};
+        Ry=varargin{3};
+    elseif nargin==4
+        Rx=varargin{2};
+        Ry=varargin{3};
+        ZLim=varargin{4};
+    end
+    
+    % Establishes essential variables from input argument
+    a=linspace(-Rx,Rx,N);
+    b=linspace(-Ry,Ry,N);
     [X,Y]=meshgrid(a,b);
-    Z = @(z) gamma(z);
+    Z = @(z) zeta(z);
     W=Z(X+1i.*Y);
     C1=imag(W);
     C2=real(W);
@@ -26,7 +69,10 @@ function complexSurf(N,R)
         str1 = 'Atan( Im W )';
     end
 
-    zlim([-2 6])
+    if nargin==3 && length(varargin{3})==2 || nargin==4
+        zlim(ZLim);
+    end
+
     xlabel('Re Z')
     ylabel('Im Z')
     zlabel('Re W')
@@ -47,15 +93,17 @@ function complexSurf(N,R)
     elseif colorVariation == 1
         str2 = 'Atan( Re W )';
     end
-    zlim([-2 6])
+   
+    if nargin==3 && length(varargin{3})==2 || nargin==4
+        zlim(ZLim);
+    end
+
     xlabel('Re Z')
     ylabel('Im Z')
     zlabel('Im W')
     c2=colorbar;
     c2.Label.String=str2;
     colormap(hsv)
-
-    hold off
 
     zeta(2);
     gamma(1);
