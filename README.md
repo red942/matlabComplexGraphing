@@ -29,6 +29,6 @@ To use the complex surface, which is not currently in the app, do the following:
     - 4 inputs (res, scaleX, scaleY, [zMin zMax]
       - Each of the inputs do the same thing as previously stated
  
-Gabriel Cammack-Coleman
-Cameron Miller
+Gabriel Cammack-Coleman\
+Cameron Miller\
 Brycen Daniels
