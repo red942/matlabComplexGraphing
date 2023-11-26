@@ -3,7 +3,7 @@ Project for Math/Cs 371 computational problem solving.
 For this project, we are graphing complex-valued functions in multiple ways and packaging them together in a Matlab app.
 Once this is released, feel free to use it however you wish.
 
-To use the main app, just launch ComplexGraphing.mlapp. Then you can do the following things:
+To use the main app, just launch ComplexGraphing.mlapp inside the FinalApp folder (make sure you have advanced.mlapp in the same directory). Then you can do the following things:
 * Enter your own functions by typing in the box at the bottom after
   - Changing the resolution by typing in the box in the top right (1000 is a good number)
   - adding scale, so you aren't zoomed in on one point (10 for each is good)
@@ -28,6 +28,8 @@ To use the complex surface, which is not currently in the app, do the following:
      - zMin and zMax set the minimum and maximum z values shown
     - 4 inputs (res, scaleX, scaleY, [zMin zMax]
       - Each of the inputs do the same thing as previously stated
+    
+If you want to access the code without the app, some of the raw code (which was rewritten inside the app) can be found in the src folder.
  
 Gabriel Cammack-Coleman\
 Cameron Miller\
